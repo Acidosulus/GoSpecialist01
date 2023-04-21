@@ -1,0 +1,33 @@
+
+<html>
+<body>
+	
+<a href="/new">Добавить Покупателя</a>
+	
+<br>
+<h1>Накладные</h1>
+<br>
+
+{{range .Bills}}
+<table style="font-weight: bold; width: 50%;">
+<tr><td>------------------------------------------------------</td></tr>
+<tr><td>ФИО:</td> <td style="text-align: right;">{{.Fio}}</td><td style="text-align: right;"><form action="/delete" method="POST"> 	<button type="submit"  name="delete" value="{{.Fio}}">удалить покупателя: {{.Fio}}</button></form></td></tr>
+<tr><td>Телефон:</td> <td style="text-align: right;"> {{.Phone}}</td></tr>
+<tr><td>Индекс:</td> <td style="text-align: right;"> {{.Address.Zip}}</td></tr>
+<tr><td>Город:</td> <td style="text-align: right;"> {{.Address.Sity}}</td></tr>
+<tr><td>Улица:</td> <td style="text-align: right;"> {{.Address.Street}}</td></tr>
+<tr><td>Дом:</td> <td style="text-align: right;"> {{.Address.Home}}</td></tr>
+<tr><td>Квартира:</td> <td style="text-align: right;"> {{.Address.Flat}}</td></tr>
+
+{{range .Items}}
+<table style="font-size:75%; font-weight: normal; width: 25%;">
+	<tr><td>Товар:</td> <td style="text-align: right;">{{.Name}}</td></tr>
+	<tr><td>Количество:</td> <td style="text-align: right;">{{.Number}}</td></tr>
+</table>
+{{end}}
+
+</table>
+{{end}}
+
+</body>
+</html>
